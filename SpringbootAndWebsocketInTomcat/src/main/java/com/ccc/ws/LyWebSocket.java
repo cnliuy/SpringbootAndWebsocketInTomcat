@@ -1,6 +1,7 @@
 package com.ccc.ws;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.concurrent.CopyOnWriteArraySet;
 import javax.websocket.OnClose;
 import javax.websocket.OnError;
@@ -11,7 +12,11 @@ import javax.websocket.server.ServerEndpoint;
 import org.springframework.stereotype.Component;
 
 
-
+/**
+ * 在用
+ * --- Be used 
+ *  
+ * */
 @ServerEndpoint(value = "/lysocket")
 @Component
 public class LyWebSocket {
@@ -27,7 +32,7 @@ public class LyWebSocket {
     @OnOpen
     public void onOpen(Session session) {
     	System.out.println("--- LyWebSocket --- onOpen() ----");
-        String  message1="--- LyWebSocket --- onOpen() ---- 向前台 传送的消息";
+        String  message1="--- LyWebSocket --- onOpen() ---- 向前台 传送的消息:"+new Date();
         this.session = session;
         webSocketSet.add(this);//加入set中        
         try {

@@ -3,12 +3,19 @@ package com.ccc.ws;
 import java.io.IOException;
 import java.util.concurrent.CopyOnWriteArraySet;
 import javax.websocket.OnClose;
+import javax.websocket.OnError;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 import org.springframework.stereotype.Component;
 
+
+/**
+ * 废弃示例 
+ * @deprecated
+ * 
+ * */
 //@ServerEndpoint(value = "/websocket")
 //@Component
 public class MyWebSocket {
@@ -70,6 +77,7 @@ public class MyWebSocket {
 
     /**
      * 发生错误时调用
+     *  * */
     @OnError
     public void onError(Session session, Throwable error) {
         System.out.println("发生错误");
@@ -96,6 +104,8 @@ public class MyWebSocket {
             }
         }
     }
+    
+
 
     public static synchronized int getOnlineCount() {
         return onlineCount;
