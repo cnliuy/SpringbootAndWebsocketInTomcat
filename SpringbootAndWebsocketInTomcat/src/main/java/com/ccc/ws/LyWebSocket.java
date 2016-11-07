@@ -72,7 +72,7 @@ public class LyWebSocket {
             }
         }
         
-        //一对一
+        //一对一发送消息        
         session.getBasicRemote().sendText("一对一消息: ---send到 ："+session.getId()+" ;");
     }
 
