@@ -57,9 +57,10 @@ public class LyWebSocket {
     /**
      * 收到客户端消息后调用的方法
      *
-     * @param message 客户端发送过来的消息*/
+     * @param message 客户端发送过来的消息
+     * @throws IOException */
     @OnMessage
-    public void onMessage(String message, Session session) {
+    public void onMessage(String message, Session session) throws IOException {
         System.out.println("来自客户端的消息:" + message);
 
         //群发消息
@@ -70,6 +71,9 @@ public class LyWebSocket {
                 e.printStackTrace();
             }
         }
+        
+        //一对一
+        session.getBasicRemote().sendText("一对一消息: ---send到 ："+session.getId()+" ;");
     }
 
     /**
